@@ -5,12 +5,14 @@
 //  Created by Dhruv Dave on 31/07/22.
 //
 //
-//=========================================
+//============================================
+//============================================
 //Assignment-1 Basics of input and output
-//=========================================
+//============================================
+//============================================
 
 #include <iostream>
-
+#include<math.h>
 //1. WAP to print Hello students on the screen
 /*
 int main() {
@@ -108,11 +110,11 @@ int main(){
 }
  */
 
-
-//======================================================
+//=====================================================
+//=====================================================
 //Assignment2 : operators in C language
-//======================================================
-
+//=====================================================
+//=====================================================
 
 //1. WAP to print unit digit of a given number
 /*
@@ -291,6 +293,7 @@ int main(){
 */
 
 //13. WAP to take a 3 digit number from the user and rotate its digits by 1 position towards the right
+/*
 int main(){
     int num,rem;
     printf("Enter a 3 digit number : ");
@@ -303,3 +306,304 @@ int main(){
     printf("\nThe num after rotating its digits by 1 position towards right is : %d\n",num);
     return 0;
 }
+*/
+
+//==================================================
+//==================================================
+//Assignment 3 : Decision Control Statements
+//==================================================
+//==================================================
+
+//1. WAP to check whether a given number is positive or non-positive
+/*
+int main(){
+    int num;
+    printf("Enter a number to check whether is is a positive or non-positive number: ");
+    scanf("%d",&num);
+    if(num>0)
+        printf("The number is a positive number\n");
+    else
+        printf("The number is a non-positive number\n");
+    return 0;
+}
+*/
+
+//2. WAP to check whether a given number is divisible by 5 or not
+/*
+int main(){
+    int num;
+    printf("\nEnter a number to check if it is divisible by 5 or not\n");
+    scanf("%d",&num);
+    if(num<1)
+        printf("\n Entered an Invalid number\n");
+    if(num%5==0)
+        printf("\nThe number is divisible by 5\n");
+    else
+        printf("\nThe number is not divisible by 5\n");
+    return 0;
+}
+*/
+
+//3. WAP to check whether a given number is odd or even number
+/*
+ int main(){
+    int num;
+    printf("\nEnter a number to check if it is even or odd number\n");
+    scanf("%d",&num);
+    if(num<1)
+        printf("\n Entered an Invalid number\n");
+    if(num%2==0)
+        printf("\nThe number is Even number\n");
+    else
+        printf("\nThe number is Odd number\n");
+    return 0;
+}
+*/
+
+//4. WAP to check whether a given number is odd or even number without using % operator
+/*
+ int main(){
+   int num;
+   printf("\nEnter a number to check if it is even or odd number\n"); //Checking without % operator
+   scanf("%d",&num);
+   if(num<1)
+       printf("\n Entered an Invalid number\n");
+   if((num&1)==1)
+       printf("\nThe number is Odd number\n");
+   else
+       printf("\nThe number is Even number\n");
+   return 0;
+}
+*/
+
+//5. WAP to check whether a given number is a 3 digit number or not
+/*
+ int main(){
+    int num;
+    printf("\n Enter a number to check if it is a 3-digit number or not:\n");
+    scanf("%d",&num);
+    num=num/100;
+    if((num>=1) && (num<=9))
+        printf("\nThe number entered is a 3-digit number\n");
+    else
+        printf("\n The entered number is not a 3-digit number\n");
+    return 0;
+}
+ */
+
+//6. WAP to print greater between 2 numbers. Print one number if both are same
+/*
+int main(){
+    int a,b;
+    printf("Enter 2 numbers :\n");
+    scanf("%d%d",&a,&b);
+    if(a>b)
+        printf("\nThe greater number is : %d\n",a);
+    else
+        printf("\nThe greater number is : %d\n",b);
+    return 0;
+}
+*/
+
+//7. WAP to check whether the roots of a given quadratic equation are real & distinct, real & equal, or imaginary roots
+//Verified each case here : (1.) a=1, b=-5, c=2 -> real & distinct (2.) a=3,b=2,c=1 -> imaginary roots (3.) a=1,b=2,c=1 -> real & equal roots
+/*
+int main(){
+    float a,b,c,D;
+    printf("Enter the Co-efficients value of a,b,c: ");
+    scanf("%f%f%f",&a,&b,&c);
+    D=b*b - 4*a*c;
+    if(D>0)
+        printf("\nThe equation has 2 real and distinct roots\n");
+    else if(D==0)
+        printf("\nThe equation has real and equal roots\n ");
+    else
+        printf("\nThe equation has imaginary roots\n");
+    
+    return 0;
+}
+*/
+
+//8. WAP to check whether a given year is a leap year or not
+/*
+ // Here, 2 conditions for a leap year : 1. divisible by 4. 2. century years unless divisible by 400 are not leap years
+ 
+int main(){
+    int year;
+    printf("Enter a year to check whether its a leap year or not :\n");
+    scanf("%d",&year);
+    if(year%4==0){
+        if(((year%100)==0) && ((year%400)!=0))
+            printf("Entered year is Not a leap year\n");
+        else
+            printf("Entered year is a leap year\n");
+    }
+
+}
+ */
+
+//9. WAP to check greatest among 3 given numbers. Print number once if the greatest number appears once or twice
+/*
+ int main(){
+    int a,b,c;
+    printf("Enter 3 numbers to check the greatest among them:\n");
+    scanf("%d%d%d",&a,&b,&c);
+    if((a>=b) && (a>=c))
+        printf("\nThe greatest number is  %d\n",a);
+    else if((b>=a) && (b>=c))
+        printf("\nThe greatest number is  %d\n",b);
+    else
+        printf("\nThe greatest number is  %d\n",c);
+    return 0;
+}
+*/
+
+//10. WAP which takes the CP(cost price) and SP(selling price) of a product. Now calculate and print the profit or loss percentage.
+/*
+int main(){
+    float cp,sp,profit,loss;
+    printf("Enter the cost price and selling price of the product:\n");
+    scanf("%f%f",&cp,&sp);
+    profit=sp-cp;
+    if (profit>0){
+        profit=(profit*100)/cp;
+        printf("\nThe profit made is %0.2f %%\n",profit);
+    }
+    else{
+        loss=cp-sp;
+        loss=(loss*100)/cp;
+        printf("\nThe loss made is %0.2f %%\n",loss);
+    }
+        return 0;
+}
+*/
+
+//11. WAP to take marks of 5 subjects from the user. Assume marks are given out of 100 and passing marks is 33. Now determine whether the candidate passed the exam or failed
+/*
+int main(){
+    int sub1,sub2,sub3,sub4,sub5;
+    float avg;
+    printf("Enter the marks out of 100 of student of 5 subjects\n");
+    scanf("%d%d%d%d%d",&sub1,&sub2,&sub3,&sub4,&sub5);
+    avg=(sub1+sub2+sub3+sub4+sub5)/5;
+    if(avg>33)
+        printf("\nThe candidate has passed the Exam\n");
+    else
+        printf("\nThe candidate has failed the Exam\n");
+
+    return 0;
+}
+*/
+
+//12. WAP to check whether a given alphabet is in uppercase or lowercase
+/*
+int main(){
+    char ch;
+    printf("Enter an alphabet either in uppercase or lowercase\n");
+    scanf("%c",&ch);
+    if((ch>='a')&&(ch<='z'))
+        printf("\nEntered alphabet is in lowercase\n");
+    else if((ch>='A')&&(ch<='Z'))
+        printf("\nEntered alphabet is in uppercase\n");
+    
+    return 0;
+}
+*/
+
+//13. WAP to check whether a given number is divisible by 3 and divisible by 2
+/*
+int main(){
+    int num;
+    printf("Enter a number to check whether it is divisible by 3 and by 2\n");
+    scanf("%d",&num);
+    if(((num%3)==0) && ((num%2)==0))
+        printf("\nThe number entered is divisible by 3 and by 2\n");
+    else
+        printf("\nThe number entered is not divisible by 3 and by 2\n");
+    
+    return 0;
+}
+*/
+
+//14. WAP to check whether a given number is divisible by 7 or divisible by 3
+/*
+int main(){
+    int num;
+    printf("Enter a number to check whether it is divisible by 7 or by 3\n");
+    scanf("%d",&num);
+    if(((num%3)==0) || ((num%7)==0))
+        printf("\nThe number entered is divisible by 3 or by 7\n");
+    else
+        printf("\nThe number entered is not divisible by 3 or by 7\n");
+    
+    return 0;
+}
+*/
+
+
+//15. WAP to check whether a given number is positive, negative or zero
+/*
+ int main(){
+    int num;
+    printf("\nEnter a number to check whether it is positive, negative or zero\n");
+    scanf("%d",&num);
+    if(num>0)
+        printf("\nThe number entered is positive\n");
+    else if(num<0)
+        printf("\nThe number entered is negative\n");
+    else
+        printf("\nThe number entered is zero\n");
+
+    return 0;
+}
+*/
+
+//16. WAP to check whether a given character is an alphabet(uppercase), an alphabet(lowercase), a digit or a special character
+/*
+ int main(){
+    char ch;
+    printf("Enter a character in uppercase or lowercase or digit or special character \n");
+    scanf("%c",&ch);
+    if((ch>='a')&&(ch<='z'))
+        printf("\nEntered character is in lowercase\n");
+    else if((ch>='A')&&(ch<='Z'))
+        printf("\nEntered character is in uppercase\n");
+    else if((ch>=48)&&(ch<=57))
+        printf("\nEntered character is a digit\n");
+    else
+        printf("\nEntered character is a special character\n");
+    return 0;
+}
+*/
+
+//17. WAP which takes the length of the sides of the triangle as an input. Display whether the triangle is valid or not
+    //the property of triangle is : a+b>c , b+c > a, a+c > b
+/*
+int main(){
+    int a,b,c;
+    printf("Enter the length of the sides of the triangle\n");
+    scanf("%d%d%d",&a,&b,&c);
+    if((a+b>c)&&(b+c>a)&&(a+c>b))
+        printf("\nThis is a valid triangle\n");
+    else
+        printf("\nThis is not a valid triangle\n");
+    return 0;
+    
+}
+*/
+
+//18. WAP which takes the month number as an input and display number of days in that month
+/*
+int main(){
+    int month;
+    printf("Enter the month\n");
+    scanf("%d",&month);
+    if((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12))
+        printf("\nThe entered month number has 31 days\n");
+    else if (month == 2)
+        printf("\nThe entered month number has 28 days\n");
+    else
+        printf("\nThe entered month number has 30 days\n");
+    return 0;
+}
+*/
