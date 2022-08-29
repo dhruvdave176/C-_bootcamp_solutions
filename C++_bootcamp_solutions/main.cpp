@@ -881,3 +881,152 @@ int main(){
     return 0;
 }
 */
+
+//=====================================================
+//Assignment 6 : Use any loop
+//=====================================================
+
+//1. Write a program to calculate sum of first N natural numbers
+/*
+int main(){
+    int n,sum=0;
+    printf("Enter a number N to calculate sum of first N natural numbers: \n");
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++)
+        sum=sum+i;
+    printf("The sum of the first N natural numbers is : %d\n",sum);
+    return 0;
+}
+*/
+
+//2. Write a program to calculate sum of first N even natural numbers
+/*
+int main(){
+    int n,sum=0;
+    printf("Enter a number N to calculate sum of first N even natural numbers: \n");
+    scanf("%d",&n);
+    for(int i=2;i<=n;i=i+2)
+        sum=sum+i;
+    printf("The sum of the first N natural numbers is : %d\n",sum);
+    return 0;
+}
+*/
+
+//3. Write a program to calculate sum of first N odd natural numbers
+/*
+int main(){
+    int n,sum=0;
+    printf("Enter a number N to calculate sum of first N even odd numbers: \n");
+    scanf("%d",&n);
+    for(int i=1;i<=n;i=i+2)
+        sum=sum+i;
+    printf("The sum of the first N natural numbers is : %d\n",sum);
+    return 0;
+}
+*/
+
+//4. Write a program to calculate sum of squares of first N natural numbers
+/*
+int main(){
+    int n,sum=0;
+    printf("Enter a number N to calculate sum of squares of first N natural numbers: \n");
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++)
+        sum=sum+(i*i);
+    printf("The sum of the squares of first N natural numbers is : %d\n",sum);
+    return 0;
+}
+*/
+
+//5. Write a program to calculate sum of cubes of first N natural numbers
+/*
+int main(){
+    int n,sum=0;
+    printf("Enter a number N to calculate sum of cubes of first N natural numbers: \n");
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++)
+        sum=sum+(i*i*i);
+    printf("The sum of the cubes of first N natural numbers is : %d\n",sum);
+    return 0;
+}
+*/
+
+//6. Write a program to calculate factorial of a number
+/*
+int main(){
+    int fact;
+    printf("Enter a number N to find its factorial :\n");
+    scanf("%d",&fact);
+    for(int i=fact-1;i>0;i--)
+        fact=fact*i;
+    printf("The value of the factorial is : %d\n",fact);
+    return 0;
+}
+*/
+
+//7. Write a program to count digits in a given number
+/*
+int main(){
+    int num,count=0;
+    printf("Enter a number to count the number of digits in it:\n");
+    scanf("%d",&num);
+    for(int i=1;i<num;i=i*10)
+        count=count+1;
+    printf("The number of digits in the number are : %d\n",count);
+    return 0;
+}
+*/
+
+//8. Write a program to check whether a given number is a Prime number or not
+/*
+int main(){
+    int num;
+    printf("Enter a number to check whether it is prime or not:\n");
+    scanf("%d",&num);
+    if(num==1)
+        printf("Entered number is neither prime nor composite number\n");
+    if(num==2)
+        printf("Entered number is a prime number\n");
+    for(int i=2;i<num;i++){
+        if(num%i==0){
+            printf("The entered number is Not a prime number\n");
+            break;
+        }
+        else if(i==(num-1))
+            printf("The entered number is a prime number\n");
+    }
+    return 0;
+}
+*/
+    
+//9. Write a program to calculate LCM of two numbers
+/*
+int main(){
+    int n,m,LCM;
+    printf("Enter two numbers to calculate LCM\n");
+    scanf("%d%d",&n,&m);
+    for(LCM=1;LCM<=n*m;LCM++){
+        if(LCM%n==0 && LCM%m==0){
+            printf("The LCM of the given two numbers is %d\n",LCM);
+            break;
+        }
+    }
+    return 0;
+}
+*/
+
+//10. Write a program to reverse a given number
+int main(){
+    int n,n_temp,rev=0,rev_temp;
+    printf("Enter a number to reverse it\n");
+    scanf("%d",&n);
+    n_temp=n;
+    for(int i=1;i<=n;i=i*10){
+        rev=rev*10;
+        rev_temp=n_temp%10;
+        rev=rev+rev_temp;
+        n_temp=n_temp/10;
+    }
+    printf("The reversed number is : %d\n",rev);
+    return 0;
+}
