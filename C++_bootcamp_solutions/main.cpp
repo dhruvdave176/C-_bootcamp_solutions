@@ -728,3 +728,156 @@ int main(){
     return 0;
 }
 */
+
+//=====================================================
+//Assignment 5 : More on iterative Control Statements
+//=====================================================
+
+//1. Write a program to print MySirG N times on the screen
+/*
+int main(){
+    int n;
+    printf("Enter a number N , to print N times MySirG on the screen\n");
+    scanf("%d",&n);
+    while(n>0){
+        printf("MySirG\n");
+        n--;
+    }
+    return 0;
+}
+*/
+//2. Write a program to print the first N natural numbers.
+/*
+int main(){
+    int n,i=1;
+    printf("Enter a number N , to print first N natural numbers on the screen\n");
+    scanf("%d",&n);
+    while(i<=n){
+        printf("%d ",i);
+        i++;
+    }
+    return 0;
+}
+*/
+
+//3. Write a program to print the first N natural numbers in reverse order
+/*
+int main(){
+    int n;
+    printf("Enter a number N , to print first N natural numbers in reverse order on screen\n");
+    scanf("%d",&n);
+    while(n>0){
+        printf("%d ",n);
+        n--;
+    }
+    return 0;
+}
+*/
+
+//4. Write a program to print the first N odd natural numbers
+/*
+int main(){
+    int n,i=1;
+    printf("Enter a number N , to print first N odd natural numbers on the screen\n");
+    scanf("%d",&n);
+    while(i<=n){
+        printf("%d ",i);
+        i=i+2;
+    }
+    return 0;
+}
+*/
+
+//5. Write a program to print the first N odd natural numbers in reverse order.
+/*
+int main(){
+    int n;
+    printf("Enter a number N , to print first N odd natural numbers in reverse order on screen\n");
+    scanf("%d",&n);
+    if(n%2==0)
+        printf("Please enter an odd number\n");
+    else
+        while(n>0){
+            printf("%d ",n);
+            n=n-2;
+        }
+    return 0;
+}
+*/
+
+//6. Write a program to print the first N even natural numbers
+/*
+int main(){
+    int n,i=2;
+    printf("Enter a number N, to print the first N even natural numbers:\n");
+    scanf("%d",&n);
+    while(i<=n)
+    {
+        printf("%d ",i);
+        i=i+2;
+    }
+    return 0;
+}
+*/
+
+//7. Write a program to print the first N even natural numbers in reverse order
+/*
+int main(){
+    int n;
+    printf("Enter a number N , to print first N even natural numbers in reverse order on screen\n");
+    scanf("%d",&n);
+    if(n%2!=0)
+        printf("Please enter an Even number\n");
+    else
+        while(n>0){
+            printf("%d ",n);
+            n=n-2;
+        }
+    return 0;
+}
+*/
+
+//8. Write a program to print squares of the first N natural numbers
+/*
+int main(){
+    int n,i=1;
+    printf("Enter a number N to print squares of the first N natural numbers: \n");
+    scanf("%d",&n);
+    while(i<=n)
+    {
+        printf("%d ",i*i);
+        i++;
+    }
+    return 0;
+}
+*/
+
+//9. Write a program to print cubes of the first N natural numbers
+/*
+int main(){
+    int n,i=1;
+    printf("Enter a number N to print cubes of the first N natural numbers: \n");
+    scanf("%d",&n);
+    while(i<=n)
+    {
+        printf("%d ",i*i);
+        i++;
+    }
+    return 0;
+}
+*/
+
+//10. Write a program to print a table of N.
+/*
+int main(){
+    int n,i=1;
+    printf("Enter a number N to print the table of N: \n");
+    scanf("%d",&n);
+
+    while(i<=10){
+        printf("%d x %d = %d\n",n,i,i*n);
+        i++;
+    }
+    return 0;
+}
+*/
