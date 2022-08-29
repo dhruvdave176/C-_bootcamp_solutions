@@ -6,9 +6,7 @@
 //
 //
 //============================================
-//============================================
 //Assignment-1 Basics of input and output
-//============================================
 //============================================
 
 #include <iostream>
@@ -111,9 +109,7 @@ int main(){
  */
 
 //=====================================================
-//=====================================================
 //Assignment2 : operators in C language
-//=====================================================
 //=====================================================
 
 //1. WAP to print unit digit of a given number
@@ -308,11 +304,11 @@ int main(){
 }
 */
 
-//==================================================
+
 //==================================================
 //Assignment 3 : Decision Control Statements
 //==================================================
-//==================================================
+
 
 //1. WAP to check whether a given number is positive or non-positive
 /*
@@ -604,6 +600,131 @@ int main(){
         printf("\nThe entered month number has 28 days\n");
     else
         printf("\nThe entered month number has 30 days\n");
+    return 0;
+}
+*/
+
+
+//==================================================
+//Assignment 4 : Decision Control Statements
+//==================================================
+
+//1.WAP to print MySirG 5 times on the screen
+/*
+ int main(){
+    int count=1;
+    while(count<=5){
+        printf("MySirG\n");
+        count++;
+    }
+    return 0;
+}
+*/
+
+//2. WAP to print the first 10 natural numbers
+/*
+int main(){
+    int n=1;
+    do{
+        printf("%d ",n);
+        n++;
+    }while(n<=10);
+    return 0;
+}
+*/
+
+//3. WAP to print the first 10 natural numbers in reverse order
+/*
+int main(){
+    int n=10;
+    while(n){
+        printf("%d ",n);
+        n--;
+    }
+    return 0;
+}
+ */
+
+//4. WAP to print the first 10 odd natural numbers
+/*
+int main(){
+    int n=1;
+    do{
+        printf("%d ",n);
+        n=n+2;
+    }while(n<=20);
+    return 0;
+}
+*/
+
+//5. WAP to print the first 10 odd natural numbers in reverse order
+/*
+int main(){
+    int n=19;
+    while(n>=1){
+        printf("%d ",n);
+        n=n-2;
+    }
+    return 0;
+}
+*/
+
+//6. WAP to print the first 10 even natural numbers
+/*
+int main(){
+    int n=2;
+    do{
+        printf("%d ",n);
+        n=n+2;
+    }while(n<=20);
+    return 0;
+}
+*/
+
+//7. WAP to print the first 10 even natural numbers in reverse order
+/*
+ int main(){
+    int n=20;
+    while(n>1){
+        printf("%d ",n);
+        n=n-2;
+    }
+    return 0;
+}
+*/
+
+//8. WAP to print squares of the first 10 natural numbers
+/*
+int main(){
+    int n=1;
+    while(n<11){
+        printf("%d ",n*n);
+        n++;
+    }
+    return 0;
+}
+*/
+
+//9. WAP to print cubes of the first 10 natural numbers
+/*
+int main(){
+    int n=1;
+    while(n<11){
+        printf("%d ",n*n*n);
+        n++;
+    }
+    return 0;
+}
+*/
+
+//10. WAP to print a table of 5
+/*
+int main(){
+    int n=1;
+    while(n<11){
+        printf("5 x %d = %d\n",n,n*5);
+        n++;
+    }
     return 0;
 }
 */
