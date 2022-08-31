@@ -1000,6 +1000,7 @@ int main(){
 */
     
 //9. Write a program to calculate LCM of two numbers
+//LCM * HCF = x * y
 /*
 int main(){
     int n,m,LCM;
@@ -1016,6 +1017,7 @@ int main(){
 */
 
 //10. Write a program to reverse a given number
+/*
 int main(){
     int n,n_temp,rev=0,rev_temp;
     printf("Enter a number to reverse it\n");
@@ -1030,3 +1032,213 @@ int main(){
     printf("The reversed number is : %d\n",rev);
     return 0;
 }
+*/
+
+//=====================================================
+//Assignment 7 : Iterative control statements (part-2)
+//=====================================================
+
+//1. Write a program to find the Nth term of the Fibonnaci series.
+//Fibonacci series is : nth term + nth+1 term i.e. 1,2,3,5,8,13,21,34,55,89
+/*
+int main(){
+    int n1=1,n2=2,n,fib=0;
+    printf("Enter the Nth term of the Fibonnaci series\n");
+    scanf("%d",&n);
+    for(int i=3;i<=n;i++){
+        fib=n1+n2;
+        n1=n2;
+        n2=fib;
+        if(i==n)
+            printf("\nThe Nth term of the fibonacci series is : %d\n",fib);
+    }
+    return 0;
+}
+*/
+
+//2. Write a program to print first N terms of Fibonacci series
+/*
+int main(){
+    int n1=1,n2=2,n,fib=0;
+    printf("Enter the Nth term to print first N terms of Fibonnaci series\n");
+    scanf("%d",&n);
+    printf("\nFibonnaci series is : ");
+    printf("%d %d ",n1,n2);    //initial values
+    for(int i=3;i<=n;i++){
+        fib=n1+n2;
+        n1=n2;
+        n2=fib;
+        printf("%d ",fib);
+    }
+    return 0;
+}
+*/
+
+//3. Write a program to check whether a given number is there in the Fibonacci series or not.
+/*
+int main(){
+    int n1=1,n2=2,num,n=50,fib=0;    //expecting upto 50 terms of fibonnaci
+    printf("Enter a number to check whether it is there in Fibonnaci series or not\n");
+    scanf("%d",&num);
+    if (n==1 || n==2)
+        printf("\nNumber is present in Fibonnaci series\n");
+    else
+        for(int i=3;i<=n;i++){
+            fib=n1+n2;
+            n1=n2;
+            n2=fib;
+            if(fib==num){
+                printf("Number is present in fibonaci series\n");
+                break;
+            }
+            if(i==n)
+                printf("Number is Not present in fibonnaci series\n");
+        }
+    return 0;
+}
+*/
+
+//4. Write a program to calculate HCF of two numbers
+/*
+int main(){
+    //x*y = LCM * HCF
+    //HCF is Highest Common factor between two numbers e.g. Highest common factor bw 6 and 4 is 2 , e.g.2 is HCF between 357 and 810 is 3
+    int x,y,HCF;
+    printf("Enter two numbers x and y to find HCF between them: \n");
+    scanf("%d%d",&x,&y);
+    for(HCF=2;HCF<x>y?x:y;HCF++){
+        if((x%HCF==0) && (y%HCF==0)){
+            printf("\nThe HCF between x and y is : %d\n",HCF);
+            break;
+        }
+    }
+    return 0;
+}
+*/
+
+//5. Write a program to check whether two given numbers are co-prime numbers or not
+// If between 2 numbers , apart from 1, there is no other common factor, then they are co-prime numbers. For example : 8 and 15 . The factors for both are : 8 - 1,2,4,8 . 15 - 1,3,5,15
+/*
+int main(){
+    int x,y,co_prime;
+    printf("Enter two numbers x and y to find HCF between them: \n");
+    scanf("%d%d",&x,&y);
+    for(co_prime=2;co_prime<=(x>y?x:y);co_prime++){
+        if((x%co_prime==0) && (y%co_prime==0)){
+            printf("\nThe numbers entered are not Co prime number\n");
+            break;
+        }
+        if (co_prime==(x>y?x:y)){
+            printf("\nThe numbers entered are Co-prime numbers !\n");
+            break;
+        }
+    }
+    return 0;
+}
+*/
+
+
+//6. Write a program to print all Prime numbers under 100
+/*
+int main(){
+    printf("\nAll prime numbers under 100 are : \n");
+    printf("2 ");
+    for(int n=2;n<100;n++){
+        for(int i=2;i<n;i++){
+            if(n%i==0)
+                break;
+            if(i==(n-1)){
+                printf("%d ",n);
+            }
+        }
+    }
+    return 0;
+}
+*/
+
+//7. Write a program to print all Prime numbers between two given numbers
+/*
+int main(){
+    int x,y;
+    printf("\nEnter 2 numbers to print prime numbers between both : \n");
+    scanf("%d%d",&x,&y);
+    if((x==2)||(y==2))
+        printf("2 ");
+    for(int n=(x<y?x:y);n<=(x>y?x:y);n++){
+        for(int i=2;i<n;i++){
+            if(n%i==0)
+                break;
+            if(i==(n-1)){
+                printf("%d ",n);
+            }
+        }
+    }
+    return 0;
+}
+*/
+
+//8. Write a program to find next Prime number of a given number
+/*
+int main(){
+    int x,i;
+    printf("\nEnter a number to find next prime number to it : \n");
+    scanf("%d",&x);
+    for(int n=x+1;n<=1000;n++){
+        for(i=2;i<n;i++){
+            if(n%i==0)
+                break;
+            if(i==(n-1)){
+                printf("\nThe next prime number is %d \n",n);
+                break;
+            }
+        }
+        if(i==(n-1)){
+            break;
+    }
+    }
+    return 0;
+}
+*/
+
+//9. Write a program to check whether a given number is an Armstrong number or not
+//Armstrong number means the number entered, that number's digits cube sum is by chance, the same number, then it is an armstrong number. Example : 123 => 1^3 + 2^3 + 5^3 =/= 125 so not an armstrong number.
+/*
+int main(){
+    int n,r,x,s;
+    printf("Enter a number to check if entered number is an Armstrong number or not :\n");
+    scanf("%d",&n);
+        s=0;
+        x=n;
+        while(x!=0){
+            r=x%10;     //r contains the remainder
+            s=s+r*r*r;  //s is the number we form after doing cube of each digit
+            x=x/10;
+        }
+        if(s==n)
+            printf("The entered number %d is an Armstrong number\n",n);
+        else
+            printf("The entered number %d is Not an Armstrong number\n",n);
+    return 0;
+}
+*/
+
+//10. Write a program to print all Armstrong numbers under 1000
+//1 to 1000 contains 5 armstrong numbers
+/*
+int main(){
+    int n,r,x,s;
+    printf("Armstrong numbers under 1000 are :\n");
+    for(n=1;n<=1000;n++){
+        s=0;
+        x=n;
+        while(x!=0){
+            r=x%10;    //r contains the remainder
+            s=s+r*r*r;
+            x=x/10;
+        }
+        if(s==n)
+            printf("%d\n",n);
+    }
+    return 0;
+}
+*/
