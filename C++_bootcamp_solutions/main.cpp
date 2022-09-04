@@ -1740,7 +1740,7 @@ int merge_array(int arr1[],int arr2[],int n){
 */
 
 //10. Write a function in C to count the frequency of each element of an array.
-
+/*
 int count_freq_elements(int arr2[],int n);
 
 int main(){
@@ -1767,3 +1767,40 @@ int count_freq_elements(int arr2[],int n){
     }
     return 0;
 }
+*/
+//There is one flaw in the above code. if the same number gets repeated later, we do same print again
+
+//Better solution is hash map technique or hashing
+//take an array, of size N, by knowing there won't be any number as an array value that is greater than N. Like for example if all elements are till value 0-9 , then you will take an array of size N as 10. Now initialize this whole array with 0.Now iterate over each of the element of the user array, Let's say if we find 1, then we go to index-1 , and then increment it by 1. Like this, each index of our array will carry the count. At last, we traverse the array and get the values printed
+
+/*
+ int count_freq_elements(int arr2[],int n);
+
+int main(){
+    int n=10;
+    int arr[n];
+    printf("Enter %d elements in the array, enter elements between 0 to 9 :\n",n);
+    for(int i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    count_freq_elements(arr,n);
+    return 0;
+}
+
+int count_freq_elements(int arr2[],int n){
+    int array_count[n];
+    for(int i=0;i<n;i++)
+        array_count[i]=0;
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(arr2[i]==j)
+                array_count[j]++;
+        }
+    }
+    printf("The frequency of each element is :\n");
+    for(int i=0;i<n;i++)
+        printf("Element %d --> %d\n",i,array_count[i]);
+    return 0;
+}
+*/
+
