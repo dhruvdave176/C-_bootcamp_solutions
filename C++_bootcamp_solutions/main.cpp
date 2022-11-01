@@ -1969,7 +1969,7 @@ bool check_digit(int num,int d){
 */
 
 //10. Write a function to print all prime factors of a given number. For example, if the number is 36 then your result should be 2, 2, 3, 3. (TSRN)
-
+/*
 void prime_fact(int num);
 int main(){
     int num;
@@ -1989,6 +1989,47 @@ void prime_fact(int num){
     }
     printf("\n");
 }
+*/
+
+
+//=====================================================
+//Assignment 11 : More on functions in C Language
+//=====================================================
+
+//1. Write a function to calculate LCM of two numbers. (TSRS)
+//2. Write a function to calculate HCF of two numbers. (TSRS)
+//3. Write a function to check whether a given number is Prime or not. (TSRS)
+/*
+int prime(int n);
+int main(){
+    int n;
+    printf("Enter a number to check whether it is a prime or not\n");
+    scanf("%d",&n);
+    if(prime(n))
+        printf("\nThe given number is a prime number\n");
+    else
+        printf("\nThe given number is not a prime number\n");
+    return 0;
+}
+int prime(int n){
+    if(n==1)
+        return 0;
+    for(int i=2;i<=n/2;i++){
+        if(n%i==0)
+            return 0;
+    }
+    return 1;
+    }
+*/
+    
+//4. Write a function to find the next prime number of a given number. (TSRS)
+
+//5. Write a function to print first N prime numbers (TSRN)
+//6. Write a function to print all Prime numbers between two given numbers. (TSRN)
+//7. Write a function to print first N terms of Fibonacci series (TSRN)
+//8. Write a function to print PASCAL Triangle. (TSRN)
+//9. Write a program in C to find the square of any number using the function.
+//10. Write a program in C to find the sum of the series 1! /1+2!/2+3!/3+4!/4+5!/5 using the function.
 
 //=====================================================
 //Assignment 14 : Array in C Language
@@ -2550,3 +2591,188 @@ int count_freq_elements(int arr2[],int n){
 }
 */
 
+
+
+//=====================================================
+//Assignment 17 : String Basics in C Language
+//=====================================================
+
+//1. Write a program to calculate the length of the string. (without using built-in method)
+/*
+int main(){
+    char str[] = "Ahmedabad";
+    int i;
+    for(i=0;str[i];i++);
+        printf("Length of the string is :%d\n",i);
+    return 0;
+}
+*/
+//taking input from user
+/*
+int main(){
+    char str[10];
+    printf("Enter a string\n");
+    fgets(str,10,stdin);
+    printf("\nThe name entered is : %s",str);
+    
+    int i;
+    for(i=0;str[i]!=0;i++)
+        printf("%c and %d\n",str[i],i);
+        printf("\nLength of the string is :%d\n",i);
+
+    return 0;
+}
+ */
+
+//2. Write a program to count the occurrence of a given character in a given string.
+/*
+int main(){
+    char str[]={'A','H','M','E','D','A','B','A','D'};
+    //occurence of A
+    int i,count=0;
+    for(i=0;str[i];i++){
+        if(str[i]=='A')     //or we can also do char b = 'A'; and then compare with b
+            count+=1;
+    }
+    printf("The occurence of A is %d\n",count);
+    return 0;
+}
+*/
+
+//3. Write a program to count vowels in a given string
+/*
+int main(){
+    char str[]={'A','H','M','E','D','A','B','A','D'};
+    //occurence of vowels
+    int i,count=0;
+    for(i=0;str[i];i++){
+        if(str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+            count+=1;
+    }
+    printf("The occurence of vowels in the string is is %d\n",count);
+    return 0;
+}
+*/
+
+//4. Write a program to convert a given string into uppercase
+/*
+int main(){
+    char str[20] = {0};
+    printf("\nEnter a string and that will be converted to uppercase\n");
+    fgets(str,20,stdin);
+    printf("\n");
+    
+    for(int i=0;str[i]!=0;i++)
+        //str[i]=str[i]-32;
+    printf("%c",str[i]-32);
+    
+    return 0;
+}
+*/
+
+//5. Write a program to convert a given string into lowercase
+/*
+int main(){
+    char str[20] = {0};
+    printf("\nEnter a string in UPPERCASE and that will be converted to lowercase\n");
+    fgets(str,20,stdin);
+    printf("\n");
+    
+    for(int i=0;str[i]!=10;i++)
+        //str[i]=str[i]-32;
+    printf("%c",str[i]+32);
+    
+    return 0;
+}
+*/
+
+//6. Write a program to reverse a string.
+/*
+int main(){
+    char str[20] = {};
+    printf("Enter a string of upto 20 characters which will be reversed\n");
+    fgets(str,20,stdin);
+    printf("\n");
+    int i,k;
+    for(i=0;str[i]!=0;i++);  // for a string of 4 characters, the i=5 , condition will go false so we decrement it by 1
+    char str2[i-1];
+    printf("The number of elements in the string is : %d for string %s\n",i-1,str);
+    k=i-1;
+    for(int j=0;j<i-1;j++){
+        str2[k] = str[j];
+        k--;
+    }
+    printf("\nThe reversed string is : %s\n",str2);
+    return 0;
+}
+*/
+
+//7. Write a program in C to count the total number of alphabets, digits and special characters in a string.
+/*
+int main(){
+    char str[20]={};
+    printf("Enter a string of 20 characters, consisting of alphabets, digits and special characters\n");
+    fgets(str,20,stdin);
+    int i,count_alphabet=0,count_digits=0,count_sp=0;
+    for(i=0;str[i]!=0;i++){
+        if((str[i]>=65 && str[i]<=90)||(str[i]>=97 && str[i]<=122))
+            count_alphabet+=1;
+        else if ((str[i]>=48 && str[i]<=57))   //ASCII code of digits is 48 to 57
+            count_digits+=1;
+        else
+            count_sp+=1;
+            }
+    printf("\nThe count of  alphabets, digits and special characters is %d , %d and %d\n",count_alphabet,count_digits,count_sp);
+    return 0;
+}
+*/
+//8. Write a program in C to copy one string to another string.
+/*
+int main(){
+    char str1[]={},str2[]={};
+    printf("Enter a string which will be copied into another string\n");
+    fgets(str1,20,stdin);
+    int i;
+    for(i=0;str1[i]!='\0';i++){
+        str2[i]=str1[i];
+    }
+    printf("\n the entered string is : %s\n",str1);
+    printf("\n the copied string is : %s\n",str2);
+    return 0;
+}
+*/
+//9. Write a C program to sort a string array in ascending order.
+int main(){
+    char str[] = "AMARDEEP";
+    int temp=0;
+    for(int i=0;str[i]!='\0';i++){
+        for(int j=i+1;str[j]!='\0';j++){
+            if(str[i] > str[j]){
+                temp=str[j];
+                str[j]=str[i];
+                str[i]=temp;
+            }
+        }
+    }
+    printf("\nThe string array in ascending order is %s\n",str);
+    return 0;
+}
+//10. Write a program in C to Find the Frequency of Characters.
+/*
+int main(){
+    char name[] = "AMARDEEP";
+    int i=0;
+    char freq[150] = {0};
+    while(name[i] != '\0'){
+        freq[name[i]]++;  //because name[i] is also an int value only, so we do freq[name[i]]. Other wise you will not increment actual occurence of each character
+        i++;      //this i++ can also be included in above code as post-increment as freq[name[i++]]++
+    }
+    //now loop for printing the above populated freq[]
+    for(i=0;i<150;i++){
+        if(freq[i]!=0){
+            printf("Occurence of %c --> %d\n",i,freq[i]);    //i is basically index i.e. character, and for each frequency, we have freq[i]
+        }
+    }
+    return 0;
+}
+*/
