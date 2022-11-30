@@ -1998,6 +1998,7 @@ void prime_fact(int num){
 //=====================================================
 
 //1. Write a function to calculate LCM of two numbers. (TSRS)
+
 //2. Write a function to calculate HCF of two numbers. (TSRS)
 //3. Write a function to check whether a given number is Prime or not. (TSRS)
 /*
@@ -2593,6 +2594,91 @@ int count_freq_elements(int arr2[],int n){
 */
 
 
+//=========================================================
+//Assignment - 16 Multi-Dimensional Array in C Language
+//=========================================================
+
+
+//1. Write a program to calculate the sum of two matrices each of order 3x3.
+/*
+int main(){
+    int a[3][3],b[3][3],c[3][3];
+    printf("Enter elements in the matrix 1:\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter elements in the matrix 2:\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            scanf("%d",&b[i][j]);
+        }
+    }
+    printf("The sum of the two matrices is :\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            c[i][j]=a[i][j]+b[i][j];
+        }
+    }
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            printf("%d   ",c[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+*/
+
+//2. Write a program to calculate the product of two matrices each of order 3x3.
+/*
+ int main(){
+    int a[3][3],b[3][3],c[3][3];
+    printf("Enter elements in the matrix 1:\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter elements in the matrix 2:\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            scanf("%d",&b[i][j]);
+        }
+    }
+    printf("The product of the two matrices is :\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            
+        }
+        
+    }
+
+
+    return 0;
+}
+ 
+ */
+/*
+int main(){
+    int x=5;
+    printf("The value of x is %d\n",x);
+    return 0;
+}
+
+//3. Write a program in C to find the transpose of a given matrix.
+//4. Write a program in C to find the sum of right diagonals of a matrix.
+//5. Write a program in C to find the sum of left diagonals of a matrix.
+//6. Write a program in C to find the sum of rows and columns of a Matrix.
+//7. Write a program in C to print or display the lower triangular of a given matrix.
+//8. Write a program in C to print or display an upper triangular matrix.
+//9. Write a program in C to accept a matrix and determine whether it is a sparse matrix.
+//10. Write a program in C to find the row with maximum number of 1s.
+*/
+
+
 
 //=====================================================
 //Assignment 17 : String Basics in C Language
@@ -2874,6 +2960,8 @@ int main()
     return 0;
 }
 */
+//=========== working:
+/*
 void swap1(char **str1_ptr,char **str2_ptr)
 {
     char *temp = *str1_ptr;
@@ -2888,6 +2976,8 @@ int main(){
     printf("str1 after swap is %s and str2 is %s\n",str1,str2);
     return 0;
 }
+*/
+
 //3. Write a function to sort an array of int type values. [ void sort(int *ptr,int size); ]
 /*
 void sort(int *ptr,int size){
@@ -3030,3 +3120,210 @@ int main(){
     return 0;
 }
 */
+
+
+
+//=====================================================
+//Assignment 21 : Structure
+//=====================================================
+
+//1. Define a structure Employee with member variables id, name, salary
+struct Employee{
+    int id;
+    char name[20];
+    float salary;
+};
+
+//2. Write a function to take input employee data from the user[refer structure from question 1]
+/*
+void display(struct Employee);
+struct Employee input(struct Employee);
+
+struct Employee input(struct Employee b1){
+    printf("Enter employee data : id , name , salary ");
+    scanf("%d",&b1.id);
+    fflush(stdin);
+    fgets(b1.name,20,stdin);
+    b1.name[strlen(b1.name)-1] = '\0';    //so that we remove entry of \n which is stored by fgets() be default
+    scanf("%f",&b1.salary);
+    return b1;
+}
+
+
+int main(){
+    struct Employee b;
+    b=input(b);
+    display(b);
+    return 0;
+}
+
+//3. Write a function to display employee data. [ Refer structure from question 1 ]
+void display(struct Employee b2){
+    printf("\nThe employee data is \n : id : %d\n name : %s\n salary : %.2f\n",b2.id,b2.name,b2.salary);
+}
+
+*/
+//4. Write a function to find the highest salary employee from a given array of 10 employees. [ Refer structure from question 1]
+/*
+void display(struct Employee);
+void input(struct Employee);
+void find_max_salary(struct Employee);
+
+void input(struct Employee b1[]){
+    printf("Enter 10 employee data : id , name , salary\n");
+    for(int i=0;i<10;i++){
+    scanf("%d",&b1[i].id);
+    fflush(stdin);
+    fgets(b1[i].name,20,stdin);
+    b1[i].name[strlen(b1[i].name)-1] = '\0';    //so that we remove entry of \n which is stored by fgets() be default
+        scanf("%f",&b1[i].salary);
+    }
+}
+
+int main(){
+    printf("\nEnter the data of 10 employees:\n");
+    struct Employee b[10];
+    input(b);
+    printf("\nthe highest salary employee is :\n");
+    find_max_salary(b);
+    return 0;
+}
+
+void find_max_salary(struct Employee b3[]){
+    float max=b3[0].salary;
+    for(int i=1;i<10;i++){
+        if(max<b3[i].salary)
+            max=b3[i].salary;
+    }
+    printf("\nThe max salary is %.2f\n",max);
+}
+*/
+/*
+void display(struct Employee b2[]){
+    printf("\nThe employee data is \n : id : %d\n name : %s\n salary : %.2f\n",b2.id,b2.name,b2.salary);
+}
+*/
+//5. Write a function to sort employees according to their salaries [ refer structure from question 1]
+//6. Write a function to sort employees according to their names [refer structure from question 1]
+//7. Write a program to calculate the difference between two time periods.
+//8. Write a program to store information of 10 students and display them using structure.
+//9. Write a program to store information of n students and display them using structure
+//10. Write a program to enter the marks of 5 students in Chemistry, Mathematics and Physics (each out of 100) using a structure named Marks having elements roll no., name, chem_marks, maths_marks and phy_marks and then display the percentage of each student
+
+
+
+//=====================================================
+//Assignment 23 : Basics of C++
+//=====================================================
+
+
+//1. Write a C++ program to print Hello MySirG on the screen.
+/*
+int main(){
+    std::cout<<"Hello MySirG"<<std::endl;
+    return 0;
+}
+*/
+//2. Write a C++ program to print Hello on the first line and MySirG on the second line using endl.
+/*
+int main(){
+    //std::cout<<"Hello\nMySirG"<<std::endl;
+    std::cout<<"Hello"<<std::endl<<"MySirG"<<std::endl;
+    return 0;
+}
+*/
+
+//3. Write a C++ program to calculate the sum of two numbers.
+/*
+int main(){
+    int a=5,b=10;
+    std::cout<<"The sum of 2 numbers is :"<<a+b<<std::endl;
+    return 0;
+}
+*/
+
+//4. Write a C++ program to calculate the area of a circle
+/*
+int main(){
+    float r=2.5;
+    std::cout<<"The area of circle is : "<<3.14*r*r<<std::endl;
+    return 0;
+}
+*/
+
+//5. Write a C++ program to calculate the volume of a cuboid.
+/*
+int main(){
+    //Volume of cuboid = l * b * h
+    int l=5,b=3;
+    float h=6.5;
+    std::cout<<"The volume of cuboid is : "<<l*b*h<<std::endl;
+    return 0;
+}
+*/
+//6. Write a C++ program to calculate an average of 3 numbers.
+/*
+int main(){
+    float avg;
+    int a,b,c;
+    std::cout<<"Enter 3 numbers to find average of it"<<std::endl;
+    std::cin>>a>>b>>c;
+    avg=(a+b+c)/3;
+    std::cout<<"The avg is : "<<avg<<std::endl;
+    return 0;
+}
+*/
+
+//7. Write a C++ program to calculate the square of a number
+/*
+int main(){
+    int a;
+    std::cout<<"Enter a number to find a square of it : "<<std::endl;
+    std::cin>>a;
+    std::cout<<"The square of the number entered is : "<<a*a<<std::endl;
+    return 0;
+}
+*/
+
+//8. Write a C++ program to swap values of two int variables without using third variable
+/*
+int main(){
+    int a,b;
+    std::cout<<"Enter 2 variables and to swap their values"<<std::endl;
+    std::cin>>a>>b;
+    std::cout<<"The 2 variables are "<<a<<" and "<<b<<std::endl;
+    b=a+b;
+    a=b-a;
+    b=b-a;
+    std::cout<<"The values of 2 variables after swapping is "<<a<<" and "<<b<<std::endl;
+    return 0;
+}
+*/
+//9. Write a C++ program to find the maximum of two numbers.
+/*
+int main(){
+    int a,b;
+    std::cout<<"Enter 2 numbers to find a maximum out of it:"<<std::endl;
+    std::cin>>a>>b;
+    std::cout<<"The maximum number is :"<<(a>b?a:b)<<std::endl;
+    return 0;
+}
+*/
+
+//10. Write a C++ program to add all the numbers of an array of size 10.
+int main(){
+    int sum=0,i=0,arr[10];
+    std::cout<<"enter 10 numbers in the array : "<<std::endl;
+    while(i<10){
+        std::cin>>arr[i];
+        i++;
+    }
+    i=0;
+    while(i<10){
+        sum=sum + arr[i];
+        i++;
+    }
+    
+    std::cout<<"The sum of all numbers of the array is "<<sum<<std::endl;
+    return 0;
+}
