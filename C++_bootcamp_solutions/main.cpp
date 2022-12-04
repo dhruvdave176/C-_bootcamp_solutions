@@ -3311,6 +3311,7 @@ int main(){
 */
 
 //10. Write a C++ program to add all the numbers of an array of size 10.
+/*
 int main(){
     int sum=0,i=0,arr[10];
     std::cout<<"enter 10 numbers in the array : "<<std::endl;
@@ -3327,3 +3328,298 @@ int main(){
     std::cout<<"The sum of all numbers of the array is "<<sum<<std::endl;
     return 0;
 }
+*/
+
+//=====================================================
+//Assignment 24 : Functions in C++
+//=====================================================
+
+//1. Define a function to check whether a given number is a Prime number or not.
+/*
+using namespace std;
+void prime(int x){
+    int i;
+    if((x==0) || (x==1))
+        cout<<"No a prime no";   //expecting no entered is >=0
+    for(i=2;i<(x>5?x/2:x);i++)
+    {
+        if(x%i==0){
+            cout<<"\nEntered no is not a prime no\n";
+            break;
+        }
+    }
+    if(i==x){
+        cout<<"\nEntered no is a prime no"<<endl;
+        }
+}
+
+int main(){
+    int x;
+    cout<<"Enter a no to check if it is prime or not"<<endl;
+    cin>>x;
+    prime(x);
+    return 0;
+}
+*/
+
+//2. Define a function to find the highest value digit in a given number.
+/*
+using namespace std;
+int highest_value_digit(int);
+int main(){
+    int x;
+    cout<<"Enter a number to find the highest value digit in given no: "<<endl;
+    cin>>x;
+    cout<<"the highest value digit is "<<highest_value_digit(x)<<endl;
+    return 0;
+}
+int highest_value_digit(int y){
+    int num,num2;
+    num = 0;
+    while(y>0){
+        num2 = y%10;
+        if(num2>num){
+            num=num2;
+            }
+        y=y/10;
+        }
+    return num;
+}
+*/
+
+//3. Define a function to calculate x raised to the power y.
+/*
+using namespace std;
+int calc_power(int,int);
+int main(){
+    int x,y;
+    cout<<"Enter 2 numbers to calculate x raised to the power y\n";
+    cin>>x>>y;
+    cout<<"The value of x power y is :"<<calc_power(x,y)<<endl;
+    return 0;
+}
+int calc_power(int a,int b){
+    int val=a;
+    for(int i=1;i<b;i++)
+        val=a*val;
+    return val;
+}
+*/
+
+//4. Define a function to print Pascal Triangle up to N lines.
+//Pascal triangle is like next row middle element will be sum total from above :
+/*
+    1
+   1 1
+  1 2 1
+ 1 3 3 1
+1 4 6 4 1
+*/
+//Pascal Triangle basically help us in Binomial expansion. Like these numbers become the coefficient. nCr = n! / (n-r)!*r!
+//So we need to calculate factorial here, combination here, and printPascal function
+/*
+i        j
+1        4
+2       3 5
+3      2 4 6
+4     1 3 5 7
+*/
+//line i -> 5 . then j will be -> (2*line-1)
+using namespace std;
+int fact(int);
+int combi(int,int);
+void printPascal(int);
+int fact (int n){
+    int f=1;        //f in the end will contain the factorial
+    while(n>1){
+        f=f*n;
+        n--;
+    }
+    return f;
+}
+
+int combi(int n,int r){
+    return (fact(n)/fact(n-r)/fact(r));
+}
+
+void printPascal(int line){
+    int i,j,k,r;
+    for(i=1;i<=line;i++){
+        k=1;
+        r=0;
+        for(j=1;j<=2*line-1;j++){
+            
+            if(j>=line+1-i && j<=line-1+i && k){   //5-i && 3 + i
+                //printf("*");
+                printf("%2d",combi(i-1,r));    //we want to print as per result of nCr
+                //%2d means it consumes 2 character places on the screen
+                k=0;
+                r++;
+            }
+            else{
+                printf("  ");
+                k=1;
+            }
+        }
+        printf("\n");
+    }
+}
+
+int main(){
+    int l;
+    cout<<"Enter number of lines for which pascal triangle needs to be printed:"<<endl;
+    cin>>l;
+    printPascal(l);
+    return 0;
+}
+
+//5. Define a function to check whether a given number is a term in a Fibonacci series or not.
+//Fibonacci series : 1 1 2 3 5 8 13 21 34 55
+/*
+using namespace std;
+void term_in_fibo(int);
+int main(){
+    int a;
+    cout<<"Enter a number to see whether it belongs to Fibonacci series"<<endl;
+    cin>>a;
+    term_in_fibo(a);
+    return 0;
+}
+void term_in_fibo(int p){
+    int result_term=0,prev_term=0,next_term=1;
+    while(result_term<=p){
+        if(result_term==p){
+            cout<<"\nThe term is present in fibonacci series"<<endl;
+            break;
+        }
+        result_term = next_term + prev_term;
+        prev_term = next_term;
+        next_term = result_term;
+    }
+    if(next_term>p)
+        cout<<"\nThe term is not present in fibonacci series"<<endl;
+}
+*/
+//6. Define a function to swap data of two int variables using call by reference
+/*
+using namespace std;
+void swap(int &,int &);
+
+int main(){
+    int a=5,b=10;
+    cout<<"The value before swapping of a and b are:"<<a<<" and "<<b<<endl;
+    swap(a,b);
+    cout<<"The values after swap of a and b are "<<a<<" and "<<b<<endl;
+    return 0;
+}
+void swap(int &p,int &q){
+    int temp;
+    temp=p;
+    p=q;
+    q=temp;
+}
+*/
+
+//7. Write a function using the default argument that is able to add 2 or 3 numbers.
+/*
+using namespace std;
+int add(int,int,int=0);
+int main(){
+    int a,b,c;
+    cout<<"Enter 2 numbers to add them:"<<endl;
+    cin>>a>>b;
+    cout<<"\nThe addition of 2 numbers is :"<<add(a,b)<<endl;
+    cout<<"\nEnter 3 numbers to add them:"<<endl;
+    cin>>a>>b>>c;
+    cout<<"\nThe addition of 3 numbers is :"<<add(a,b,c)<<endl;
+
+    return 0;
+}
+int add(int a,int b,int c){
+    return a+b+c;
+}
+*/
+
+//8. Define overloaded functions to calculate area of circle, area of rectangle and area of triangle
+/*
+using namespace std;
+float area(float);
+int area(int,int);
+float area(float,float,float);
+
+int main(){
+    float r,base,height,constant=0.5;
+    int l,b;
+    cout<<"Enter radius to calculate area of the circle:"<<endl;
+    cin>>r;
+    cout<<"\nThe area of circle is :"<<area(r)<<endl;
+    
+    cout<<"Enter length and breadth to calculate area of the rectangle:"<<endl;
+    cin>>l>>b;
+    cout<<"\nThe area of rectangle is :"<<area(l,b)<<endl;
+    
+    cout<<"Enter base and height to calculate area of the triangle:"<<endl;
+    cin>>base>>height;
+    cout<<"\nThe area of triangle is :"<<area(constant,base,height)<<endl;
+    return 0;
+}
+
+float area(float r){
+    return 3.14*r*r;
+}
+
+int area(int l,int b){
+    return l*b;
+}
+float area(float c,float b,float h){
+    return c*b*h;
+}
+*/
+//9. Write functions using function overloading to find a maximum of two numbers and both the numbers can be integer or real.
+/*
+int find_max(int,int);
+float find_max(float,float);
+using namespace std;
+int main(){
+    int a,b;
+    float c,d;
+    cout<<"Enter 2 int numbers to find the maximum of 2 numbers:"<<endl;
+    cin>>a>>b;
+    cout<<"\nThe max number of the two is :"<<find_max(a,b)<<endl;
+    cout<<"\nEnter 2 real numbers to find the maximum of 2 numbers:"<<endl;
+    cin>>c>>d;
+    cout<<"\nThe max number of the two is :"<<find_max(c,d)<<endl;
+    return 0;
+}
+int find_max(int a,int b){
+    return a>b?a:b;
+}
+float find_max(float a,float b){
+    return a>b?a:b;
+}
+*/
+
+//10. Write functions using function overloading to add two numbers having different data types.
+/*
+using namespace std;
+int add(int, int);
+float add(float, float);
+int main(){
+    int a,b;
+    float c,d;
+    cout<<"Enter 2 numbers to add them"<<endl;
+    cin>>a>>b;
+    cout<<"\nThe result is:"<<add(a,b)<<endl;
+    
+    cout<<"Enter 2 numbers to add them"<<endl;
+    cin>>c>>d;
+    cout<<"\nThe result is:"<<add(c,d)<<endl;
+    return 0;
+}
+int add(int a,int b){
+    return a+b;
+}
+float add(float c,float d){
+    return c+d;
+}
+*/
