@@ -3161,8 +3161,8 @@ int main(){
 void display(struct Employee b2){
     printf("\nThe employee data is \n : id : %d\n name : %s\n salary : %.2f\n",b2.id,b2.name,b2.salary);
 }
-
 */
+   
 //4. Write a function to find the highest salary employee from a given array of 10 employees. [ Refer structure from question 1]
 /*
 void display(struct Employee);
@@ -3204,12 +3204,316 @@ void display(struct Employee b2[]){
 }
 */
 //5. Write a function to sort employees according to their salaries [ refer structure from question 1]
-//6. Write a function to sort employees according to their names [refer structure from question 1]
-//7. Write a program to calculate the difference between two time periods.
-//8. Write a program to store information of 10 students and display them using structure.
-//9. Write a program to store information of n students and display them using structure
-//10. Write a program to enter the marks of 5 students in Chemistry, Mathematics and Physics (each out of 100) using a structure named Marks having elements roll no., name, chem_marks, maths_marks and phy_marks and then display the percentage of each student
+/*
+struct Employee{
+    int id;
+    char name[20];
+    float salary;
+};
+*/
+/*
+struct Employee input();
+void display(struct Employee);
 
+void sort(struct Employee E[], int size){
+    struct Employee temp;
+    for(int i=0;i<size-1;i++){
+        for(int j=0;j<size-i-1;j++){
+            if(E[j].salary>E[j+1].salary){
+                temp = E[j+1];
+                E[j+1] = E[j];
+                E[j] = temp;
+            }
+        }
+    }
+}
+
+int main(){
+    int num_employee;
+    printf("\nEnter the number of employees in the company to enter their data");
+    scanf("%d",&num_employee);
+    struct Employee E[num_employee];
+    printf("\nEnter the data of each of the employees\n");
+    for(int i=0;i<num_employee;i++){
+        E[i] = input();
+    }
+    
+    for(int i=0;i<num_employee;i++){
+        display(E[i]);
+    }
+    
+    sort(E,num_employee);
+
+    for(int i=0;i<num_employee;i++){
+        display(E[i]);
+    }
+    
+    return 0;
+}
+
+struct Employee input(){
+    struct Employee E;
+    scanf("%d",&E.id);
+    fflush(stdin);
+    fgets(E.name,20,stdin);
+    E.name[strlen(E.name)-1] = '\0';
+    scanf("%f",&E.salary);
+    return E;
+}
+
+void display(struct Employee E){
+    printf(" %d ",E.id);
+    printf(" %s ",E.name);
+    printf(" %f ",E.salary);
+}
+*/
+
+//6. Write a function to sort employees according to their names [refer structure from question 1]
+
+/*
+struct Employee{
+    int id;
+    char name[20];
+    float salary;
+};
+*/
+
+
+struct Employee input();
+void display(struct Employee);
+
+void sort(struct Employee E[], int size){
+    struct Employee temp;
+    printf("\n");
+    for(int i=0;i<size-1;i++){
+        for(int j=0;j<size-i-1;j++){
+            if((strcmp(E[j].name,E[j+1].name))>0){
+                
+                temp = E[j+1];
+                E[j+1] = E[j];
+                E[j] = temp;
+            }
+        }
+    }
+}
+
+int main(){
+    int num_employee;
+    printf("\nEnter the number of employees in the company to enter their data");
+    scanf("%d",&num_employee);
+    struct Employee E[num_employee];
+    printf("\nEnter the data of each of the employees\n");
+    for(int i=0;i<num_employee;i++){
+        E[i] = input();
+    }
+    
+    for(int i=0;i<num_employee;i++){
+        display(E[i]);
+    }
+    
+    sort(E,num_employee);
+
+    for(int i=0;i<num_employee;i++){
+        display(E[i]);
+    }
+    
+    return 0;
+}
+
+struct Employee input(){
+    struct Employee E;
+    scanf("%d",&E.id);
+    fflush(stdin);
+    fgets(E.name,20,stdin);
+    E.name[strlen(E.name)-1] = '\0';
+    scanf("%f",&E.salary);
+    return E;
+}
+
+void display(struct Employee E){
+    printf(" %d ",E.id);
+    printf(" %s ",E.name);
+    printf(" %f ",E.salary);
+}
+
+ 
+
+//7. Write a program to calculate the difference between two time periods.
+// Example: We have 2 time period : start time : 4 hr 50 min. | end time : 6hr 55 min
+//end - start is the difference
+//what if start : 4:50 and end : 6:45 . what will be the difference ??
+//Here, end-start ==> 6:45 - 4:50 ==> 6 cut 5 and carry back 1 i.e. 60 mins -> 5:105 - 4:50 -> 1 hour 55 min is the correct answer
+/*
+struct time{
+    int sec;
+    int min;
+    int hrs;
+};
+
+void diff_bw_time(struct time start, struct time stop, struct time *diff){
+    while(stop.sec < start.sec)
+    {
+        --stop.min;
+        stop.sec += 60;
+    }
+    
+    diff->sec = start.sec - stop.sec;
+    while(stop.min < start.min)
+    {
+        --stop.hrs;
+        stop.min+=60;
+    }
+    diff->min = start.min - stop.min;
+    diff->hrs = start.hrs - stop.hrs;
+}
+
+int main(){
+    struct time start_time,stop_time,diff;
+    
+    printf("Enter start time\n");
+    printf("Enter hours, minutes and seconds\n");
+    scanf("%d %d %d",&start_time.hrs,&start_time.min,&start_time.sec);
+
+    printf("Enter stop time\n");
+    printf("Enter hours, minutes and seconds\n");
+    scanf("%d %d %d",&stop_time.hrs,&stop_time.min,&stop_time.sec);
+    
+    diff_bw_time(start_time,stop_time,&diff);
+
+    printf("time diff is %d %d %d - ",start_time.hrs,start_time.min,start_time.sec);
+    printf("%d:%d:%d \n",stop_time.hrs,stop_time.min,stop_time.sec);
+    printf("%d:%d:%d\n",diff.hrs,diff.min,diff.sec);
+
+    return 0;
+}
+*/
+
+
+//8. Write a program to store information of 10 students and display them using structure.
+/*
+struct student{
+    int roll_no;
+    char name[20];
+};
+
+struct student input(){
+    struct student S;
+    scanf("%d",&S.roll_no);
+    fflush(stdin);
+    fgets(S.name,20,stdin);
+    S.name[strlen(S.name)-1]='\0';
+    return S;
+}
+
+void display(struct student S){
+    printf("Roll_no: %d\n",S.roll_no);
+    printf("Name is: %s\n",S.name);
+}
+int main(){
+    struct student S[10];
+    printf("Enter information about 10 students : roll_no and name of each\n");
+    for(int i=0;i<10;i++){
+        S[i]=input();
+    }
+
+    printf("\nThe info about 10 students is :\n");
+    for(int i=0;i<10;i++){
+        display(S[i]);
+    }
+    return 0;
+}
+*/
+//9. Write a program to store information of n students and display them using structure
+/*
+struct student{
+    int roll_no;
+    char name[20];
+};
+
+struct student input(){
+    struct student S;
+    scanf("%d",&S.roll_no);
+    fflush(stdin);
+    fgets(S.name,20,stdin);
+    S.name[strlen(S.name)-1]='\0';
+    return S;
+}
+
+void display(struct student S){
+    printf("Roll_no: %d\n",S.roll_no);
+    printf("Name is: %s\n",S.name);
+}
+int main(){
+    int n;
+    printf("Enter how many students information you want to enter\n");
+    scanf("%d",&n);
+    struct student S[n];
+    printf("\nPlease enter each student roll_no and name :\n");
+    for(int i=0;i<n;i++){
+        S[i]=input();
+    }
+
+    printf("\nThe info about 10 students is :\n");
+    for(int i=0;i<n;i++){
+        display(S[i]);
+    }
+    return 0;
+}
+*/
+
+//10. Write a program to enter the marks of 5 students in Chemistry, Mathematics and Physics (each out of 100) using a structure named Marks having elements roll no., name, chem_marks, maths_marks and phy_marks and then display the percentage of each student
+/*
+struct Marks{
+    int roll_no;
+    char name[20];
+    int chem_marks;
+    int maths_marks;
+    int phy_marks;
+};
+struct Marks input(){
+    struct Marks S;
+    scanf("%d",&S.roll_no);
+    fflush(stdin);
+    fgets(S.name,20,stdin);
+    S.name[strlen(S.name)-1]='\0';
+    scanf("%d",&S.chem_marks);
+    scanf("%d",&S.maths_marks);
+    scanf("%d",&S.phy_marks);
+    return S;
+}
+
+void display_percentage(struct Marks S){
+    float percentage;
+    percentage = (S.chem_marks + S.maths_marks + S.phy_marks)/3;
+    printf("\nThe percentage scored by student with roll_no %d and name %s is %.2f\n",S.roll_no,S.name,percentage);
+}
+
+
+int main(){
+    struct Marks S[5];
+    printf("Enter the marks of 5 students with details as : roll no., name, chem_marks, maths_marks and phy_marks :");
+    for(int i=0;i<5;i++)
+        S[i]=input();
+    for(int i=0;i<5;i++)
+        display_percentage(S[i]);
+    
+    return 0;
+}
+*/
+//=====================================================
+//Assignment 22 : DMA
+//=====================================================
+
+// 1. Define a function to input variable length string and store it in an array without memory wastage.
+// 2. Write a program to ask the user to input a number of data values he would like to enter then create an array dynamically to accommodate the data values. Now take the input from the user and display the average of data values.
+// 3. Write a program to calculate the sum of n numbers entered by the user using malloc and free.
+// 4. Write a program to input and print text using dynamic memory allocation.
+// 5. Write a program to read a one dimensional array, print sum of all elements along with inputted array elements using dynamic memory allocation.
+// 6. Write a program in C to find the largest element using Dynamic Memory Allocation.
+// 7. Write a program to demonstrate memory leak in C.
+// 8. Write a program to demonstrate dangling pointers in C.
+// 9. Write a program to allocate memory dynamically of the size in bytes entered by the user. Also handle the case when memory allocation is failed.
+// 10. Find out the maximum and minimum from an array using dynamic memory allocation in C.
 
 
 //=====================================================
@@ -3425,6 +3729,8 @@ i        j
 4     1 3 5 7
 */
 //line i -> 5 . then j will be -> (2*line-1)
+
+/*
 using namespace std;
 int fact(int);
 int combi(int,int);
@@ -3472,6 +3778,9 @@ int main(){
     printPascal(l);
     return 0;
 }
+*/
+
+
 
 //5. Define a function to check whether a given number is a term in a Fibonacci series or not.
 //Fibonacci series : 1 1 2 3 5 8 13 21 34 55
